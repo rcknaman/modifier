@@ -27,7 +27,37 @@
 .App-link {
   color: #61dafb;
 }
-
+.blank{
+  color: red;
+}
+.color-box{
+  height: 30px;
+  width: 30px;
+  margin: 4px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.dark{
+  background-color: #0C141F;
+  color: antiquewhite;
+}
+.skin{
+  background-color: #E2C07B;
+  color: #585656;
+}
+.multi{
+  background-image: repeating-linear-gradient(315deg, rgba(139, 105, 105, 0.904) 19%, rgb(117, 95, 95) 20%);
+  color: #e5e2e2;
+}
+.h-dark::selection{
+  background: rgba(51, 75, 16,.3);
+}
+.h-skin::selection{
+  background: rgb(185, 145, 63,.7);
+}
+.h-multi::selection{
+  background-color: #77605F;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

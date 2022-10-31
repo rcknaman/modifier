@@ -1,24 +1,54 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar';
+import TextForm from './components/TextForm';
+import Alert from './components/Alert';
+import React,{useState,useEffect  } from 'react'
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 function App() {
+  const [theme, setTheme] = useState('multi');
+
+  const [alert, setAlert] = useState(null);
+
+  const showAlert=(message,type)=>{
+    setAlert({message:message,type:type});
+    setTimeout(() => {
+        setAlert(null);
+    }, 3000);
+  }
+  useEffect(() => {
+    document.body.className = '';
+    document.body.classList.add(theme);
+  }, [theme]);
+
+  const themeChanger=(colorname)=>{
+    setTheme(colorname);
+    showAlert(`Theme Changed`,'success');
+    
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+
+
+
+
+    <Router>
+    <Navbar title='MOD!F!ER' abt_txt="about text" themeChanger={themeChanger} theme={theme}/>
+    <Alert alert={alert} color={theme}/>
+    <div className='container my-3'>
+    <Routes>
+          <Route path="/" element={<TextForm heading="Enter the text below" theme={theme} showAlert={showAlert}/>}/>   
+    </Routes>
     </div>
+    </Router>
+    </>
   );
 }
 
