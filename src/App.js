@@ -4,12 +4,12 @@ import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
 import React,{useState,useEffect  } from 'react'
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+//   Link
+// } from "react-router-dom";
 
 
 function App() {
@@ -39,15 +39,16 @@ function App() {
 
 
 
-    <Router>
+    {/* <Router> */}
     <Navbar title='MOD!F!ER' abt_txt="about text" themeChanger={themeChanger} theme={theme}/>
     <Alert alert={alert} color={theme}/>
     <div className='container my-3'>
-    <Routes>
-          <Route path="/" element={<TextForm heading="Enter the text below" theme={theme} showAlert={showAlert}/>}/>   
-    </Routes>
+    {/* <Routes> */}
+          {/* <Route path="/" element={<TextForm heading="Enter the text below" theme={theme} showAlert={showAlert}/>}/>    */}
+    {/* </Routes> */}
+    <TextForm heading="Enter the text below" theme={theme} showAlert={showAlert}/>
     </div>
-    </Router>
+    {/* </Router> */}
     </>
   );
 }
